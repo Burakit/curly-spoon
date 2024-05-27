@@ -253,16 +253,17 @@ let day = d.getDay();
 weekday = { 0: 'sunday', 1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday' }
 today = weekday[day]
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDLx7da4yoov3kcpwZYmKmkUyEm2Fz_7pE",
   authDomain: "get-fit-e80ee.firebaseapp.com",
+  databaseURL: "https://get-fit-e80ee-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "get-fit-e80ee",
   storageBucket: "get-fit-e80ee.appspot.com",
   messagingSenderId: "794988645858",
   appId: "1:794988645858:web:1ce4ded1deded0eb573dbb",
   measurementId: "G-6P2QVMD00X"
-  };
-firebase.initializeApp(firebaseConfig);
+};
 
 var CountRef = firebase.database().ref(today + '/exercise');
 CountRef.on('child_changed', (snapshot) => {
